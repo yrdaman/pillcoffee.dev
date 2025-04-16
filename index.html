@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buy Me a Coffee ☕</title>
+  <link rel="icon" href="yrd.png" type="image/png" sizes="32x32">
+
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .coffee-container {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(to bottom, rgba(0, 255, 47, 0.7), rgba(0, 0, 0, 0.7)); /* Transparent green to transparent white */
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+
+    .profile-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 3px solid #1e8b03;
+    }
+
+    h1 {
+  margin: 0.2rem 0;
+  background: linear-gradient(to bottom, rgba(142, 187, 142, 0.7), rgb(85, 255, 0)); /* Gradient for text */
+  -webkit-background-clip: text; /* For Safari */
+  background-clip: text; /* For other browsers */
+  color: transparent; /* Make the text color transparent so the gradient is visible */
+}
+
+
+    p {
+      color: rgb(0, 255, 0);
+
+    }
+
+    input[type="text"] {
+      padding: 0.5rem;
+      width: 90%;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .buy-btn {
+      background-color: rgb(0, 255, 0);
+      border: none;
+      color: black;
+      font-weight: bold;
+      padding: 0.7rem 2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    .buy-btn:hover {
+      background-color: #4aff59;
+    }
+
+    .counter {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: rgb(0, 255, 0);
+    }
+
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #666;
+    }
+    @keyframes glowing {
+  0% {
+    box-shadow: 0 0 3px 0 rgba(0, 255, 47, 0.5), 0 0 5px 0 rgba(0, 255, 47, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 8px 4px rgba(0, 255, 47, 1), 0 0 15px 2px rgba(0, 255, 47, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 3px 0 rgba(0, 255, 47, 0.5), 0 0 5px 0 rgba(0, 255, 47, 0.7);
+  }
+}
+
+.buy-btn {
+  background-color: #3cff00;
+  border: none;
+  color: black;
+  font-weight: bold;
+  padding: 0.7rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+  border: 2px solid #000000;
+}
+input::placeholder {
+      text-align: center;
+    }
+.buy-btn:hover {
+  background-color: #1eff00;
+}
+
+/* Apply the glowing green effect */
+.glowing {
+  animation: glowing 1.5s ease-in-out infinite alternate;
+}
+
+
+  </style>
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <div class="coffee-container">
+    <img src="ascii-art.png" class="profile-img" alt="Your Image" />
+    <h1>@yrdaman</h1>
+    <p>I'm a developer who loves building cool stuff. If you like my work, consider buying me a coffee!</p>
+    <h2>Buy Me a Coffee</h2>
+    <p>Support my work and help me create more awesome projects mate.</p>
+    <p>Leave a message with your coffee!</p>
+
+    <input type="text" placeholder="Which pill do you want  !!!" id="messageInput" />
+
+    <button class="buy-btn" onclick="buyCoffee()">☕ Buy Me a Coffee</button>
+
+    <div class="counter" id="coffeeCounter">Coffees Bought: 0</div>
+
+    <div class="footer">👾👾👾</div>
+  </div>
+
+  <script>
+    // Matrix Background Effect
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = "ల め D ఱ v स ఋ A ね క W న サ శ M ర ヨ h ర జ ఢ అ ツ や つ ఎ q X అ H み క ణ న フ ఆ గ త Y బ わ ప t E F ఏ ఏ ね జ a C B ぬ వ ం బ కం f U మ シ m ళ o R ム O I ひ ఖ チ さ బ ぃ జ ద G す న U 1 జ れ こ వ ల త G ర へ ఱ i ダ ఇ ソ P య భ を 0 は ఞ ユ మ స క ヨ k j ఱ ర చ క ఝ ヒ బ స る N ఔ u や మ డ ル t x వ ヲ ン J మ త ప ら Y ఔ A し స ఔ n s ఌ T h に త వ h భ మ ర T ヘ B ద ఌ ఁ l ఙ జ も O ి అ え z Z v ん ఠ H F ప D う స 魂 న れ మ క ః క ర ళ త Q c あ ヒ i L x v 0 え ప ఱ ఞ జ మ గ J q";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+
+    const drops = [];
+    for(let i = 0; i < columns; i++)
+      drops[i] = 1;
+
+    function drawMatrix() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#0f0";
+      ctx.font = fontSize + "px monospace";
+
+      for(let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+          drops[i] = 0;
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 33); // ~30fps
+
+    // Buy Coffee Logic
+    let coffeeCount = 0;
+
+    function buyCoffee() {
+      const message = document.getElementById("messageInput").value;
+      coffeeCount++;
+      document.getElementById("coffeeCounter").innerText = `Coffees Bought: ${coffeeCount}`;
+      if (message) {
+        alert(`Thanks for your support! Message: "${message}"`);
+      } else {
+        alert("Thanks for your coffee! ☕");
+      }
+    }
+    function triggerGlow() {
+  const button = document.querySelector('.buy-btn');
+  
+  // Add the glowing effect to the button
+  button.classList.add('glowing');
+  
+  // Remove the glowing effect after a random interval between 1s and 3s
+  setTimeout(() => {
+    button.classList.remove('glowing');
+  }, Math.random() * 2000 + 1000); // Random interval between 1s and 3s
+}
+ // Block right-click context menu
+ document.addEventListener("contextmenu", function (event) {
+      event.preventDefault();
+    });
+
+    // Block certain keyboard shortcuts
+    document.addEventListener("keydown", function(event) {
+    // Check for Ctrl + Shift + I (F12 or Dev Tools shortcut)
+    if ((event.ctrlKey && event.shiftKey && event.key === "I") || 
+        (event.ctrlKey && event.shiftKey && event.key === "i") ||
+        (event.key === "F12") || 
+        (event.ctrlKey && event.key === "U") || // Ctrl + U (View Source)
+        (event.ctrlKey && event.key === "C") || // Ctrl + C (Copy)
+        (event.ctrlKey && event.key === "X") || // Ctrl + X (Cut)
+        (event.ctrlKey && event.key === "V")) { // Ctrl + V (Paste)
+        event.preventDefault();
+       
+    }
+});
+
+
+
+// Trigger the glow effect at random intervals
+setInterval(triggerGlow, Math.random() * 3000 + 1000); // Random interval between 1s and 4s
+
+  </script>
+</body>
+</html>
