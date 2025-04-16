@@ -68,12 +68,7 @@ Perfect for developers, content creators, or digital artists looking to add some
 
 ---
 
-## 📸 Preview
 
-![screenshot](preview-image.png)  
-_(Add a screenshot here to show off your creation!)_
-
----
 
 ## 💬 Philosophy Behind the Pixels
 
