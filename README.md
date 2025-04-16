@@ -4,7 +4,7 @@
 **A neon-lit tribute to caffeine, code, and creativity.**  
 Welcome to the *trippiest* donation page you’ll ever land on. If The Matrix and a coffee shop had a baby, this would be it.  
 
-Made with 💚 by `@yrdaman`.
+Made like 👾 by `@yrdaman`.
 
 ---
 
